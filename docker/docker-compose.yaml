@@ -1,0 +1,27 @@
+services:
+  sportshub-mysql:
+    image: mysql
+    restart: always
+    container_name: "sports-hub-mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'sports_hub'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'root'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql
+      - sports-hub-mysql-data:/var/lib/mysql
+
+  sportshub-redis:
+    image: "redis:latest"
+    container_name: "sports-hub-redis-container"
+    ports:
+      - "6379:6379"
+    volumes:
+      - sports-hub-redis-data:/data
+
+volumes:
+  sports-hub-redis-data:
+  sports-hub-mysql-data:
