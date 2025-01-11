@@ -1,5 +1,3 @@
-### Backend (Spring Boot Application) README
-
 # Ecommerce Spring Boot Application
 
 This is the backend of the e-commerce application built with Spring Boot, utilizing MySQL for the database and Redis for caching.
